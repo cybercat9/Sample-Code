@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Prime Number Checker</title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <style>
+            .topbar{
+
+
+                width:100%;
+                height:100px;
+                background-color:darkkhaki;
+                margin:0;
+                text-align: center;
+
+            }
+
+
+            .positioning{
+                text-align: center;
+            }
+
+        </style>
+
+
+
+
+    </head>
+
+
+
+    <body>
+        <div class="topbar">
+
+            <h1>PRIME NUMBER CHECKER</h1>
+
+        </div>
+        <div class="positioning">
+            <p>Please enter a number to check if it is a prime number</p>
+            <br/>
+            <input id="number"/>
+            <button id="myButton" onclick="isPrime()">Submit</button>
+            <p id="checkResult"></p>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            var input = 1;
+            var arry = ["123", "789"];
+
+
+
+
+function isPrime(){
+    //alert("hi");
+    var arry=["123","567"];
+    console.log(arry);
+    
+      var input = 1;
+    input=parseInt(document.getElementById("number").value);
+    console.log(input);
+    
+    
+    for(var i=2;i<input;i++) {
+        if(input%i==0){
+            document.getElementById("checkResult").innerHTML="The number is not prime";
+          //return false;
+          return;
+      }       
+          
+          else{
+              
+    // return true;
+document.getElementById("checkResult").innerHTML="The number is prime";
+              
+          }
+          
+    }
+
+               
+    
+    
+}
+
+
+        </script>
+
+
+
+    </body>
+</html>

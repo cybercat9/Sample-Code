@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Reaction Tester</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            #box{
+                width:200px;
+                height:200px;
+                background-color: red;
+                display: none;
+                position:relative;
+                
+
+            }
+        </style>
+
+        <script>
+            
+            
+            
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+
+
+            var clickedTime, createdTime=0, reactionTime;
+            function makeBox() {
+                var time = Math.random();
+                time = time * 5000;
+
+                setTimeout(function () {
+
+                    if (Math.random() > 0.5) {
+
+                        document.getElementById("box").style.borderRadius = "100px";
+
+                    } else {
+                        document.getElementById("box").style.borderRadius = "0";
+                    }
+
+
+                    var top = Math.random();
+
+
+
+                    top = top * 300;
+
+
+                    var left = Math.random();
+
+                    left = left * 500;
+
+                    document.getElementById("box").style.top = top + "px";
+                    document.getElementById("box").style.left = left + "px";
+
+                    document.getElementById("box").style.backgroundColor = getRandomColor();
+                    document.getElementById("box").style.display = "block";
+
+
+                    createdTime = Date.now();
+                }
+                , time);
+
+
+            } // end of makebox
+
+
+            function disappear() {
+
+                clickedTime = Date.now();
+
+                reactionTime = (clickedTime - createdTime) / 1000;
+
+
+                document.getElementById("time").innerHTML = reactionTime;
+                //alert(reactionTime);
+
+                document.getElementById("box").style.display = "none";
+
+                makeBox();
+            }
+
+
+
+makeBox();
+
+        </script>
+
+
+
+
+    </head>
+    <body>
+
+        <h1>Test your reactions!</h1>
+
+        <p> Your time: <span id="time">0</span>s</p>
+
+        <div id="box" onclick="disappear()"></div>
+    </body>
+</html>
